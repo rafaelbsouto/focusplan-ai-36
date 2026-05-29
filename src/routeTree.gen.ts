@@ -10,17 +10,30 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignupRouteImport } from './routes/signup'
+import { Route as ProgressoRouteImport } from './routes/progresso'
+import { Route as PlanoRouteImport } from './routes/plano'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as DisponibilidadeRouteImport } from './routes/disponibilidade'
 import { Route as DisciplinasRouteImport } from './routes/disciplinas'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as CalendarioRouteImport } from './routes/calendario'
 import { Route as AvaliacoesRouteImport } from './routes/avaliacoes'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgressoRoute = ProgressoRouteImport.update({
+  id: '/progresso',
+  path: '/progresso',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanoRoute = PlanoRouteImport.update({
+  id: '/plano',
+  path: '/plano',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -48,6 +61,11 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CalendarioRoute = CalendarioRouteImport.update({
+  id: '/calendario',
+  path: '/calendario',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AvaliacoesRoute = AvaliacoesRouteImport.update({
   id: '/avaliacoes',
   path: '/avaliacoes',
@@ -62,32 +80,41 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/avaliacoes': typeof AvaliacoesRoute
+  '/calendario': typeof CalendarioRoute
   '/dashboard': typeof DashboardRoute
   '/disciplinas': typeof DisciplinasRoute
   '/disponibilidade': typeof DisponibilidadeRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
+  '/plano': typeof PlanoRoute
+  '/progresso': typeof ProgressoRoute
   '/signup': typeof SignupRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/avaliacoes': typeof AvaliacoesRoute
+  '/calendario': typeof CalendarioRoute
   '/dashboard': typeof DashboardRoute
   '/disciplinas': typeof DisciplinasRoute
   '/disponibilidade': typeof DisponibilidadeRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
+  '/plano': typeof PlanoRoute
+  '/progresso': typeof ProgressoRoute
   '/signup': typeof SignupRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/avaliacoes': typeof AvaliacoesRoute
+  '/calendario': typeof CalendarioRoute
   '/dashboard': typeof DashboardRoute
   '/disciplinas': typeof DisciplinasRoute
   '/disponibilidade': typeof DisponibilidadeRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
+  '/plano': typeof PlanoRoute
+  '/progresso': typeof ProgressoRoute
   '/signup': typeof SignupRoute
 }
 export interface FileRouteTypes {
@@ -95,42 +122,54 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/avaliacoes'
+    | '/calendario'
     | '/dashboard'
     | '/disciplinas'
     | '/disponibilidade'
     | '/forgot-password'
     | '/login'
+    | '/plano'
+    | '/progresso'
     | '/signup'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/avaliacoes'
+    | '/calendario'
     | '/dashboard'
     | '/disciplinas'
     | '/disponibilidade'
     | '/forgot-password'
     | '/login'
+    | '/plano'
+    | '/progresso'
     | '/signup'
   id:
     | '__root__'
     | '/'
     | '/avaliacoes'
+    | '/calendario'
     | '/dashboard'
     | '/disciplinas'
     | '/disponibilidade'
     | '/forgot-password'
     | '/login'
+    | '/plano'
+    | '/progresso'
     | '/signup'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AvaliacoesRoute: typeof AvaliacoesRoute
+  CalendarioRoute: typeof CalendarioRoute
   DashboardRoute: typeof DashboardRoute
   DisciplinasRoute: typeof DisciplinasRoute
   DisponibilidadeRoute: typeof DisponibilidadeRoute
   ForgotPasswordRoute: typeof ForgotPasswordRoute
   LoginRoute: typeof LoginRoute
+  PlanoRoute: typeof PlanoRoute
+  ProgressoRoute: typeof ProgressoRoute
   SignupRoute: typeof SignupRoute
 }
 
@@ -141,6 +180,20 @@ declare module '@tanstack/react-router' {
       path: '/signup'
       fullPath: '/signup'
       preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/progresso': {
+      id: '/progresso'
+      path: '/progresso'
+      fullPath: '/progresso'
+      preLoaderRoute: typeof ProgressoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plano': {
+      id: '/plano'
+      path: '/plano'
+      fullPath: '/plano'
+      preLoaderRoute: typeof PlanoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -178,6 +231,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/calendario': {
+      id: '/calendario'
+      path: '/calendario'
+      fullPath: '/calendario'
+      preLoaderRoute: typeof CalendarioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/avaliacoes': {
       id: '/avaliacoes'
       path: '/avaliacoes'
@@ -198,11 +258,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AvaliacoesRoute: AvaliacoesRoute,
+  CalendarioRoute: CalendarioRoute,
   DashboardRoute: DashboardRoute,
   DisciplinasRoute: DisciplinasRoute,
   DisponibilidadeRoute: DisponibilidadeRoute,
   ForgotPasswordRoute: ForgotPasswordRoute,
   LoginRoute: LoginRoute,
+  PlanoRoute: PlanoRoute,
+  ProgressoRoute: ProgressoRoute,
   SignupRoute: SignupRoute,
 }
 export const routeTree = rootRouteImport
