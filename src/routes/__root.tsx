@@ -18,7 +18,7 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-gradient">404</h1>
+        <h1 className="font-display text-7xl font-extrabold tracking-tighter text-primary">404</h1>
         <h2 className="mt-4 text-xl font-semibold">Página não encontrada</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           A página que você procura não existe ou foi movida.
@@ -96,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
       },
     ],
   }),
