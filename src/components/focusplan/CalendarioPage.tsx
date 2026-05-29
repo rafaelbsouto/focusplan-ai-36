@@ -26,7 +26,7 @@ export function CalendarioPage() {
   }, [plan]);
 
   const totalMin = endMin - startMin;
-  const hours = [];
+  const hours: number[] = [];
   for (let m = Math.floor(startMin / 60) * 60; m <= endMin; m += 60) hours.push(m);
 
   return (
