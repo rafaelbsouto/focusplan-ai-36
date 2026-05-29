@@ -12,7 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as DisponibilidadeRouteImport } from './routes/disponibilidade'
+import { Route as DisciplinasRouteImport } from './routes/disciplinas'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as AvaliacoesRouteImport } from './routes/avaliacoes'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SignupRoute = SignupRouteImport.update({
@@ -30,9 +33,24 @@ const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
   path: '/forgot-password',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DisponibilidadeRoute = DisponibilidadeRouteImport.update({
+  id: '/disponibilidade',
+  path: '/disponibilidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisciplinasRoute = DisciplinasRouteImport.update({
+  id: '/disciplinas',
+  path: '/disciplinas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AvaliacoesRoute = AvaliacoesRouteImport.update({
+  id: '/avaliacoes',
+  path: '/avaliacoes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -43,14 +61,20 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/avaliacoes': typeof AvaliacoesRoute
   '/dashboard': typeof DashboardRoute
+  '/disciplinas': typeof DisciplinasRoute
+  '/disponibilidade': typeof DisponibilidadeRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/avaliacoes': typeof AvaliacoesRoute
   '/dashboard': typeof DashboardRoute
+  '/disciplinas': typeof DisciplinasRoute
+  '/disponibilidade': typeof DisponibilidadeRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
@@ -58,20 +82,42 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/avaliacoes': typeof AvaliacoesRoute
   '/dashboard': typeof DashboardRoute
+  '/disciplinas': typeof DisciplinasRoute
+  '/disponibilidade': typeof DisponibilidadeRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/forgot-password' | '/login' | '/signup'
+  fullPaths:
+    | '/'
+    | '/avaliacoes'
+    | '/dashboard'
+    | '/disciplinas'
+    | '/disponibilidade'
+    | '/forgot-password'
+    | '/login'
+    | '/signup'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/forgot-password' | '/login' | '/signup'
+  to:
+    | '/'
+    | '/avaliacoes'
+    | '/dashboard'
+    | '/disciplinas'
+    | '/disponibilidade'
+    | '/forgot-password'
+    | '/login'
+    | '/signup'
   id:
     | '__root__'
     | '/'
+    | '/avaliacoes'
     | '/dashboard'
+    | '/disciplinas'
+    | '/disponibilidade'
     | '/forgot-password'
     | '/login'
     | '/signup'
@@ -79,7 +125,10 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvaliacoesRoute: typeof AvaliacoesRoute
   DashboardRoute: typeof DashboardRoute
+  DisciplinasRoute: typeof DisciplinasRoute
+  DisponibilidadeRoute: typeof DisponibilidadeRoute
   ForgotPasswordRoute: typeof ForgotPasswordRoute
   LoginRoute: typeof LoginRoute
   SignupRoute: typeof SignupRoute
@@ -108,11 +157,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ForgotPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/disponibilidade': {
+      id: '/disponibilidade'
+      path: '/disponibilidade'
+      fullPath: '/disponibilidade'
+      preLoaderRoute: typeof DisponibilidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disciplinas': {
+      id: '/disciplinas'
+      path: '/disciplinas'
+      fullPath: '/disciplinas'
+      preLoaderRoute: typeof DisciplinasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/avaliacoes': {
+      id: '/avaliacoes'
+      path: '/avaliacoes'
+      fullPath: '/avaliacoes'
+      preLoaderRoute: typeof AvaliacoesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -127,7 +197,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvaliacoesRoute: AvaliacoesRoute,
   DashboardRoute: DashboardRoute,
+  DisciplinasRoute: DisciplinasRoute,
+  DisponibilidadeRoute: DisponibilidadeRoute,
   ForgotPasswordRoute: ForgotPasswordRoute,
   LoginRoute: LoginRoute,
   SignupRoute: SignupRoute,
