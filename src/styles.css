@@ -127,6 +127,13 @@
   .font-mono { font-family: var(--font-mono); }
   .shadow-card { box-shadow: var(--shadow-md); }
   .shadow-elevated { box-shadow: var(--shadow-lg); }
+  .shadow-glow { box-shadow: var(--shadow-md); }
   .tracking-editorial { letter-spacing: 0.2em; }
   .hairline { border-color: oklch(0.21 0.08 265 / 0.12); }
+
+  /* Legacy aliases — map old gradient utilities to the new flat navy palette */
+  .bg-gradient-primary { background-color: var(--primary); color: var(--primary-foreground); }
+  .bg-gradient-soft { background-color: var(--background); }
+  .bg-gradient-hero { background-color: var(--background); }
+  .text-gradient { color: var(--accent); }
 }
