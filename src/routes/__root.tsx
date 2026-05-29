@@ -18,7 +18,7 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="font-display text-7xl font-extrabold tracking-tighter text-primary">404</h1>
+        <h1 className="text-7xl font-bold text-gradient">404</h1>
         <h2 className="mt-4 text-xl font-semibold">Página não encontrada</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           A página que você procura não existe ou foi movida.
@@ -83,12 +83,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "FocusPlan organiza sua rotina de estudos com inteligência artificial: disciplinas, provas, disponibilidade e plano semanal.",
       },
-      { property: "og:title", content: "FocusPlan — Estude com inteligência" },
+      { property: "og:title", content: "FocusPlan — Plano de estudos inteligente com IA" },
       {
         property: "og:description",
         content: "Transforme sua rotina de estudos em um plano inteligente com IA.",
       },
       { property: "og:type", content: "website" },
+      { name: "twitter:title", content: "FocusPlan — Plano de estudos inteligente com IA" },
+      { name: "description", content: "Plano de estudos inteligente com IA" },
+      { property: "og:description", content: "Plano de estudos inteligente com IA" },
+      { name: "twitter:description", content: "Plano de estudos inteligente com IA" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/743e3ca5-f467-4d67-96d5-8573868df114/id-preview-9d26d74a--94f46fa4-4004-4801-a9e8-7e605cc98777.lovable.app-1780078813738.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/743e3ca5-f467-4d67-96d5-8573868df114/id-preview-9d26d74a--94f46fa4-4004-4801-a9e8-7e605cc98777.lovable.app-1780078813738.png" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -96,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
       },
     ],
   }),
